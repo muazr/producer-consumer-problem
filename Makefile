@@ -1,17 +1,17 @@
 CC=g++
-CFLAGS=-Wall -Wextra -Werror -Wpedantic
+CFLAGS=-std=c++11 -Wall -Wextra -Werror -Wpedantic
 LDFLAGS=-pthread
-HEADERS=ConcurrentQueue.h
-SOURCES=ProducerConsumerTest.cpp
+HEADERS=concurrentqueue.h
+SOURCES=producerconsumertest.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
-all: ProducerConsumerTest
+all: producer-consumer-test
 
 %.o: %.cpp $(HEADERS)
 	$(CC) -c -o $@ $(CFLAGS) $<
 
-ProducerConsumerTest: ProducerConsumerTest.o
+producer-consumer-test: producerconsumertest.o
 	$(CC) -o $@ $(LDFLAGS) $^
 
 clean:
-	rm -f $(OBJECTS) ProducerConsumerTest
+	rm -f $(OBJECTS) producer-consumer-test

@@ -19,5 +19,5 @@ make
 
 To run, simply execute the compiled binary:
 ```
-./ProducerConsumerTest
+./producer-consumer-test
 ```
