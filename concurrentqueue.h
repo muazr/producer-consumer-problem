@@ -1,5 +1,5 @@
-#ifndef THREAD_SAFE_QUEUE_H
-#define THREAD_SAFE_QUEUE_H
+#ifndef CONCURRENT_QUEUE_H
+#define CONCURRENT_QUEUE_H
 
 #include <mutex>
 #include <queue>
@@ -18,7 +18,7 @@ class ConcurrentQueue {
 		ConcurrentQueue(unsigned long size)
 				: m_max_size(size) {}
 
-		ConcurrentQueue(const ConcurrentQueue<T> &other) 
+		ConcurrentQueue(const ConcurrentQueue<T> &other)
 				: m_max_size(other.m_max_size) {
 			std::lock_guard<std::mutex> lock(other.m_mutex);
 			m_queue = other.m_queue;
